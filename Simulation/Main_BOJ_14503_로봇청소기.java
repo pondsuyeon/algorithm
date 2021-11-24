@@ -32,8 +32,7 @@ public class Main_BOJ_14503_로봇청소기 {
 		}
 
 		clear[r][c] = true;
-		map[r][c] = 2;
-		int ans = 2;
+		int ans = 1;
 
 		while (true) {
 
@@ -49,7 +48,7 @@ public class Main_BOJ_14503_로봇청소기 {
 					c = nc;
 
 					clear[r][c] = true;
-					map[r][c] = ++ans;
+					ans++;
 
 					flag = true;
 					break;
@@ -60,7 +59,7 @@ public class Main_BOJ_14503_로봇청소기 {
 				int nr = r - dx[d];
 				int nc = c - dy[d];
 
-				if (map[nr][nc] != 1) {
+				if (map[nr][nc] == 0) {
 					r = nr;
 					c = nc;
 				} else {
@@ -68,14 +67,7 @@ public class Main_BOJ_14503_로봇청소기 {
 				}
 			}
 		}
-		
-		for(int i = 0; i < N; i++) {
-			for(int j = 0; j < M; j++) {
-				System.out.print(map[i][j]+ " ");
-			}
-			System.out.println();
-		}
+
 		System.out.println(ans);
 	}
-
 }
